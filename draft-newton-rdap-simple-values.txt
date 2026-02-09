@@ -2,20 +2,20 @@
 
 
 
-REGEXT Working Group                                           A. Newton
+Network Working Group                                          A. Newton
 Internet-Draft                                                     ICANN
 Intended status: Standards Track                         9 February 2026
 Expires: 13 August 2026
 
 
                            RDAP Simple Values
-                  draft-todo-yourname-protocol-latest
+                 draft-newton-rdap-simple-values-latest
 
 Abstract
 
    This document defines an extension for the Registration Data Access
    Protocol to express simple values for scenarios where specific data
-   is needed but the format of the data is not complicated enough to
+   is needed, but the format of the data is not complicated enough to
    require a specific extension for that data.
 
 About This Document
@@ -23,17 +23,13 @@ About This Document
    This note is to be removed before publishing as an RFC.
 
    The latest revision of this draft can be found at
-   https://anewton1998.github.io/draft-newton-rdap-simple-values/.
-   Status information for this document may be found at
-   https://datatracker.ietf.org/doc/draft-todo-yourname-protocol/.
-
-   Discussion of this document takes place on the REGEXT Working Group
-   mailing list (mailto:regext@ietf.org), which is archived at
-   https://mailarchive.ietf.org/arch/browse/regext/.  Subscribe at
-   https://www.ietf.org/mailman/listinfo/regext/.
+   https://anewton1998.github.io/draft-newton-rdap-simple-values/draft-
+   newton-rdap-simple-values.html.  Status information for this document
+   may be found at https://datatracker.ietf.org/doc/draft-newton-rdap-
+   simple-values/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/anewton1998/draft-regext-rdap-simple-values.
+   https://github.com/anewton1998/draft-newton-rdap-simple-values.
 
 Status of This Memo
 
@@ -70,15 +66,26 @@ Table of Contents
 
    1.  Introduction
    2.  Conventions and Definitions
-   3.  Security Considerations
-   4.  IANA Considerations
-   5.  Normative References
+   3.  Simple Value Data
+   4.  Security Considerations
+   5.  IANA Considerations
+   6.  Normative References
    Acknowledgments
    Author's Address
 
 1.  Introduction
 
-   TODO Introduction
+   The Registration Data Access Protocol (RDAP) defines a core set of
+   data types for Domain Name Registries (DNRs) and Internet Number
+   Resource Registries (INRRs) as defined in [RFC9083].  When a registry
+   needs to express data not found in [RFC9083], an RDAP extension must
+   be used for the expression of that data.  However, RDAP extensions
+   require changes to client software to be useful by most users.  For
+   scenarios in which the data is not complex, this can be overly
+   burdensome.
+
+   This RDAP extension defines a method for the expression of simple
+   values that is reusable across multiple use cases.
 
 2.  Conventions and Definitions
 
@@ -88,15 +95,68 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-3.  Security Considerations
+3.  Simple Value Data
+
+   This RDAP extension defines a JSON object of the following form:
+
+   json "simpleValues_data" : [ { "name" : "example", "value" : "the
+   data", "scope" : "some scope", "links" : [ ... (links from RFC 9083)
+   ] } ]
+
+   This JSON object contains an array of name/value JSON objects, each
+   with the following members:
+
+   *  "name" - a string containing the registered name of the value.
+
+   *  "value" - depending on the registration of the name, this is one
+      of the following data types:
+
+      -  a JSON boolean
+
+      -  a JSON number
+
+      -  a JSON string
+
+      -  an array of JSON booleans
+
+      -  an array of JSON numbers
+
+      -  an array of JSON strings
+
+   *  "scope" - an OPTIONAL string to distinguish a specific use of the
+      value.
+
+   *  "links" - as defined in [RFC9083].
+
+   Each object of the array MUST only appear once per combination of
+   "name" and "scope".  As "scope" is optional, an object of the array
+   without a scope MUST only appear once with a "name".
+
+   The "simpleValues_data" object MUST only appear at the top-level of
+   an RDAP object class instance.
+
+   The following is an example of an RDAP "ip network" object with a
+   "simpleValues_data" object:
+
+   { "rdapConformance" : [ "rdap_level_0", "simpleValues" ],
+   "objectClassName" : "ip network", "handle" : "203.0.113.0 -
+   203.0.113.255", "ipVersion" : "v4", "startAddress" : "203.0.113.0",
+   "endAddress" : "203.0.113.255", "simpleValue_data" : [ { "name" : "ip
+   announce auth key pem", "value" : [ "---BEGIN KEY---",
+   "349390202000020", "---END KEY---" ], "scope" : "cloud provider
+   alpha" }, { "name" : "ip announce auth key pem", "value" : [ "---
+   BEGIN KEY---", "abcdefghijklmno", "---END KEY---" ], "scope" : "cloud
+   provider gamma" }, ] }
+
+4.  Security Considerations
 
    TODO Security
 
-4.  IANA Considerations
+5.  IANA Considerations
 
-   This document has no IANA actions.
+   TODO: Registery "simpleValues" RDAP extension identifier.
 
-5.  Normative References
+6.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -106,6 +166,11 @@ Table of Contents
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC9083]  Hollenbeck, S. and A. Newton, "JSON Responses for the
+              Registration Data Access Protocol (RDAP)", STD 95,
+              RFC 9083, DOI 10.17487/RFC9083, June 2021,
+              <https://www.rfc-editor.org/rfc/rfc9083>.
 
 Acknowledgments
 
