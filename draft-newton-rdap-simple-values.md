@@ -63,7 +63,7 @@ that is reusable across multiple use cases.
 
 This RDAP extension defines a JSON object of the following form:
 
-```json
+~~~ json
 "simpleValues_data" : [
   {
     "name" : "example",
@@ -74,7 +74,7 @@ This RDAP extension defines a JSON object of the following form:
     ]
   }
 ]
-```
+~~~
 
 This JSON object contains an array of name/value JSON objects, each with the following members:
 
@@ -97,7 +97,7 @@ The "simpleValues_data" object MUST only appear at the top-level of an RDAP obje
 
 The following is an example of an RDAP "ip network" object with a "simpleValues_data" object:
 
-```
+~~~ json
 {
    "rdapConformance" : [ "rdap_level_0", "simpleValues" ],
    "objectClassName" : "ip network",
@@ -126,7 +126,7 @@ The following is an example of an RDAP "ip network" object with a "simpleValues_
      },
    ]
 }
-```
+~~~
 
 # Security Considerations
 
