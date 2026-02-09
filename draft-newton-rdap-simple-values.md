@@ -19,35 +19,33 @@
 # Change the file extension to match the format (.xml for XML, etc...)
 #
 ###
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
-category: info
+title: "RDAP Simple Values"
+abbrev: "RDAP Simple Values"
+category: std
 
 docname: draft-todo-yourname-protocol-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
-date:
+date: {DATE}
 consensus: true
 v: 3
-area: AREA
-workgroup: WG Working Group
+area: ART
+workgroup: REGEXT Working Group
 keyword:
- - next generation
- - unicorn
- - sparkling distributed ledger
+ - RDAP
 venue:
-  group: WG
+  group: REGEXT
   type: Working Group
-  mail: WG@example.com
-  arch: https://example.com/WG
-  github: USER/REPO
-  latest: https://example.com/LATEST
+  mail: regext@ietf.org
+  arch: https://mailarchive.ietf.org/arch/browse/regext/
+  github: anewton1998/draft-regext-rdap-simple-values
+  latest: https://anewton1998.github.io/draft-newton-rdap-simple-values/
 
 author:
  -
-    fullname: Your Name Here
-    organization: Your Organization Here
-    email: your.email@example.com
+    fullname: Andy Newton
+    organization: ICANN
+    email: andy@hxr.us
 
 normative:
 
@@ -57,8 +55,10 @@ informative:
 
 --- abstract
 
-TODO Abstract
-
+This document defines an extension for the Registration Data Access Protocol
+to express simple values for scenarios where specific data is needed but
+the format of the data is not complicated enough to require a specific
+extension for that data. 
 
 --- middle
 
