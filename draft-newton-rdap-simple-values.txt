@@ -99,9 +99,16 @@ Table of Contents
 
    This RDAP extension defines a JSON object of the following form:
 
-   json "simpleValues_data" : [ { "name" : "example", "value" : "the
-   data", "scope" : "some scope", "links" : [ ... (links from RFC 9083)
-   ] } ]
+   "simpleValues_data" : [
+     {
+       "name" : "example",
+       "value" : "the data",
+       "scope" : "some scope",
+       "links" : [
+          ... (links from RFC 9083)
+       ]
+     }
+   ]
 
    This JSON object contains an array of name/value JSON objects, each
    with the following members:
@@ -138,15 +145,34 @@ Table of Contents
    The following is an example of an RDAP "ip network" object with a
    "simpleValues_data" object:
 
-   { "rdapConformance" : [ "rdap_level_0", "simpleValues" ],
-   "objectClassName" : "ip network", "handle" : "203.0.113.0 -
-   203.0.113.255", "ipVersion" : "v4", "startAddress" : "203.0.113.0",
-   "endAddress" : "203.0.113.255", "simpleValue_data" : [ { "name" : "ip
-   announce auth key pem", "value" : [ "---BEGIN KEY---",
-   "349390202000020", "---END KEY---" ], "scope" : "cloud provider
-   alpha" }, { "name" : "ip announce auth key pem", "value" : [ "---
-   BEGIN KEY---", "abcdefghijklmno", "---END KEY---" ], "scope" : "cloud
-   provider gamma" }, ] }
+   {
+      "rdapConformance" : [ "rdap_level_0", "simpleValues" ],
+      "objectClassName" : "ip network",
+      "handle" : "203.0.113.0 - 203.0.113.255",
+      "ipVersion" : "v4",
+      "startAddress" : "203.0.113.0",
+      "endAddress" : "203.0.113.255",
+      "simpleValue_data" : [
+        {
+           "name" : "ip announce auth key pem",
+           "value" : [
+              "---BEGIN KEY---",
+              "349390202000020",
+              "---END KEY---"
+           ],
+           "scope" : "cloud provider alpha"
+        },
+        {
+           "name" : "ip announce auth key pem",
+           "value" : [
+              "---BEGIN KEY---",
+              "abcdefghijklmno",
+              "---END KEY---"
+           ],
+           "scope" : "cloud provider gamma"
+        },
+      ]
+   }
 
 4.  Security Considerations
 

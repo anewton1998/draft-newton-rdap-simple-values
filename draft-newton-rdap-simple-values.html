@@ -1207,7 +1207,8 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-simple-value-data" class="section-name selfRef">Simple Value Data</a>
       </h2>
 <p id="section-3-1">This RDAP extension defines a JSON object of the following form:<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2"><code>json
+<div class="lang-json sourcecode" id="section-3-2">
+<pre>
 "simpleValues_data" : [
   {
     "name" : "example",
@@ -1218,7 +1219,8 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
     ]
   }
 ]
-</code><a href="#section-3-2" class="pilcrow">¶</a></p>
+</pre><a href="#section-3-2" class="pilcrow">¶</a>
+</div>
 <p id="section-3-3">This JSON object contains an array of name/value JSON objects, each with the following members:<a href="#section-3-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3-4.1">
@@ -1259,7 +1261,8 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 "name".<a href="#section-3-5" class="pilcrow">¶</a></p>
 <p id="section-3-6">The "simpleValues_data" object <span class="bcp14">MUST</span> only appear at the top-level of an RDAP object class instance.<a href="#section-3-6" class="pilcrow">¶</a></p>
 <p id="section-3-7">The following is an example of an RDAP "ip network" object with a "simpleValues_data" object:<a href="#section-3-7" class="pilcrow">¶</a></p>
-<p id="section-3-8"><code>
+<div class="lang-json sourcecode" id="section-3-8">
+<pre>
 {
    "rdapConformance" : [ "rdap_level_0", "simpleValues" ],
    "objectClassName" : "ip network",
@@ -1288,7 +1291,8 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
      },
    ]
 }
-</code><a href="#section-3-8" class="pilcrow">¶</a></p>
+</pre><a href="#section-3-8" class="pilcrow">¶</a>
+</div>
 </section>
 </div>
 <div id="security-considerations">
