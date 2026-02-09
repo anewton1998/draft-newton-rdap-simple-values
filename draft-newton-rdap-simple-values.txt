@@ -2,34 +2,38 @@
 
 
 
-WG Working Group                                              Y. N. Here
-Internet-Draft                                    Your Organization Here
-Intended status: Informational                           9 February 2026
+REGEXT Working Group                                           A. Newton
+Internet-Draft                                                     ICANN
+Intended status: Standards Track                         9 February 2026
 Expires: 13 August 2026
 
 
-                           TODO - Your title
+                           RDAP Simple Values
                   draft-todo-yourname-protocol-latest
 
 Abstract
 
-   TODO Abstract
+   This document defines an extension for the Registration Data Access
+   Protocol to express simple values for scenarios where specific data
+   is needed but the format of the data is not complicated enough to
+   require a specific extension for that data.
 
 About This Document
 
    This note is to be removed before publishing as an RFC.
 
    The latest revision of this draft can be found at
-   https://example.com/LATEST.  Status information for this document may
-   be found at https://datatracker.ietf.org/doc/draft-todo-yourname-
-   protocol/.
+   https://anewton1998.github.io/draft-newton-rdap-simple-values/.
+   Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-todo-yourname-protocol/.
 
-   Discussion of this document takes place on the WG Working Group
-   mailing list (mailto:WG@example.com), which is archived at
-   https://example.com/WG.
+   Discussion of this document takes place on the REGEXT Working Group
+   mailing list (mailto:regext@ietf.org), which is archived at
+   https://mailarchive.ietf.org/arch/browse/regext/.  Subscribe at
+   https://www.ietf.org/mailman/listinfo/regext/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/USER/REPO.
+   https://github.com/anewton1998/draft-regext-rdap-simple-values.
 
 Status of This Memo
 
@@ -109,6 +113,6 @@ Acknowledgments
 
 Author's Address
 
-   Your Name Here
-   Your Organization Here
-   Email: your.email@example.com
+   Andy Newton
+   ICANN
+   Email: andy@hxr.us
